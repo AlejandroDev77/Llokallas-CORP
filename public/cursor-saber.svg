@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Glow trail effect -->
+  <ellipse cx="8" cy="8" rx="6" ry="3" fill="#00BFFF" opacity="0.08" transform="rotate(-45 8 8)"/>
+  <ellipse cx="9" cy="9" rx="4" ry="2" fill="#00BFFF" opacity="0.15" transform="rotate(-45 9 9)"/>
+  <!-- Outer blade glow -->
+  <rect x="0" y="0" width="5" height="20" rx="2.5" fill="#00BFFF" opacity="0.08" transform="rotate(-45 10 10) translate(8, -2)"/>
+  <rect x="0" y="0" width="4" height="18" rx="2" fill="#00BFFF" opacity="0.15" transform="rotate(-45 10 10) translate(8.5, -1)"/>
+  <!-- Blade core -->
+  <rect x="0" y="0" width="2.5" height="16" rx="1.2" fill="#00BFFF" opacity="0.95" transform="rotate(-45 10 10) translate(9, 0)"/>
+  <!-- Blade white core -->
+  <rect x="0" y="0" width="1.2" height="15" rx="0.6" fill="#ffffff" opacity="0.7" transform="rotate(-45 10 10) translate(9.6, 0.5)"/>
+  <!-- Handle guard -->
+  <rect x="0" y="0" width="5" height="2.5" rx="0.5" fill="#777" transform="rotate(-45 10 10) translate(7.5, 16)"/>
+  <!-- Handle body -->
+  <rect x="0" y="0" width="4" height="8" rx="1" fill="#999" stroke="#666" stroke-width="0.4" transform="rotate(-45 10 10) translate(8, 18)"/>
+  <!-- Handle grip lines -->
+  <rect x="0" y="0" width="3" height="0.6" fill="#666" transform="rotate(-45 10 10) translate(8.5, 20)"/>
+  <rect x="0" y="0" width="3" height="0.6" fill="#666" transform="rotate(-45 10 10) translate(8.5, 21.5)"/>
+  <rect x="0" y="0" width="3" height="0.6" fill="#666" transform="rotate(-45 10 10) translate(8.5, 23)"/>
+  <!-- Handle button -->
+  <circle cx="0" cy="0" r="0.8" fill="#FFD700" transform="rotate(-45 10 10) translate(10, 19.5)"/>
+  <!-- Handle pommel -->
+  <rect x="0" y="0" width="4.5" height="1.5" rx="0.5" fill="#888" transform="rotate(-45 10 10) translate(7.8, 26)"/>
+</svg>
