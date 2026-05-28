@@ -1,9 +1,29 @@
+import { Canvas } from "@react-three/fiber";
+import {
+  OrbitControls,
+  Environment,
+  useGLTF,
+  Center,
+} from "@react-three/drei";
+
+import { Suspense } from "react";
+
 import { useState } from "react";
 import { GALLERY_ITEMS, GALLERY_CATEGORIES } from "../../constants";
 import type { GalleryItem } from "../../constants";
 import ScrollReveal from "./ScrollReveal";
+function Model({ url }: { url: string }) {
+  const { scene } = useGLTF(url);
+
+  return (
+    <Center>
+      <primitive object={scene} scale={1} />
+    </Center>
+  );
+}
 
 export default function Gallery() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
@@ -50,7 +70,10 @@ export default function Gallery() {
         {filteredItems.map((item, index) => (
           <ScrollReveal key={item.id} delay={100 * index} direction={index % 2 === 0 ? "up" : "scale"}>
             <div
-              onClick={() => setSelectedImage(item)}
+              onClick={() => {
+                setSelectedImage(item);
+                setCurrentImageIndex(0);
+              }}
               className="group relative bg-black/40 backdrop-blur-md border border-white/20 rounded-lg overflow-hidden cursor-pointer hover:border-yellow-400/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-yellow-400/10"
             >
               {/* Image */}
@@ -115,11 +138,80 @@ export default function Gallery() {
           >
             {/* Image */}
             <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
-              <img
-                src={selectedImage.image}
-                alt={selectedImage.title}
-                className="w-full h-full object-cover"
-              />
+              {selectedImage.model ? (
+                <Canvas camera={{ position: selectedImage.cameraPosition , fov: 50 }}>
+                  <ambientLight/>
+
+                  <directionalLight
+                    position={[5, 5, 5]}
+                  />
+
+                  <Suspense fallback={null}>
+                    <Model url={selectedImage.model} />
+                    <Environment preset="studio" />
+                  </Suspense>
+
+                  <OrbitControls autoRotate />
+                </Canvas>
+              ) : (
+                selectedImage.images ? (
+                  <div className="relative w-full h-full">
+                    <img
+                      src={selectedImage.images[currentImageIndex]}
+                      alt={selectedImage.title}
+                      className="w-full h-full object-cover"
+                    />
+
+                    {/* BOTON IZQUIERDA */}
+                    <button
+                      onClick={() =>
+                        setCurrentImageIndex((prev) =>
+                          prev === 0
+                            ? selectedImage.images!.length - 1
+                            : prev - 1
+                        )
+                      }
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full"
+                    >
+                      ←
+                    </button>
+
+                    {/* BOTON DERECHA */}
+                    <button
+                      onClick={() =>
+                        setCurrentImageIndex((prev) =>
+                          prev === selectedImage.images!.length - 1
+                            ? 0
+                            : prev + 1
+                        )
+                      }
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full"
+                    >
+                      →
+                    </button>
+
+                    {/* INDICADORES */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                      {selectedImage.images.map((_, index) => (
+                        <div
+                          key={index}
+                          className={`w-3 h-3 rounded-full ${
+                            currentImageIndex === index
+                              ? "bg-yellow-400"
+                              : "bg-white/50"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <img
+                    src={selectedImage.image}
+                    alt={selectedImage.title}
+                    className="w-full h-full object-cover"
+                  />
+                )
+              )}
             </div>
 
             {/* Info */}
