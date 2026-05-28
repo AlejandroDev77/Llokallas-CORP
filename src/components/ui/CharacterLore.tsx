@@ -19,44 +19,44 @@ const CHARACTERS: Character[] = [
   {
     id: "jaime",
     name: "JAIME PAZ ZAMORA",
-    alias: "Darth Vader",
-    title: "El Señor Oscuro del Imperio",
+    alias: "Anakin Skywalker / Darth Vader",
+    title: "El Elegido que cayó al Lado Oscuro",
     side: "dark",
     saberColor: "#FF0000",
     glowColor: "rgba(255, 0, 0, 0.3)",
-    bio: "Nacido en Cochabamba en 1939, Jaime Paz Zamora fue uno de los fundadores del Movimiento de Izquierda Revolucionaria (MIR) en 1971. Estudió Ciencias Sociales y Políticas en la Universidad Católica de Lovaina, Bélgica. Desde su juventud se opuso a las dictaduras militares, sobreviviendo al exilio y la persecución política.",
+    bio: "Nacido en Cochabamba en 1939, Jaime Paz Zamora comenzó como un idealista revolucionario — un verdadero Anakin Skywalker. Fundó el MIR en 1971 para luchar contra las dictaduras. Estudió en Bélgica, sobrevivió al exilio y la persecución. Pero el poder lo transformó.",
     realHistory:
-      "Fue vicepresidente de Bolivia (1982-1984) bajo Hernán Siles Zuazo, y luego presidente entre 1989 y 1993 mediante el histórico 'Acuerdo Patriótico'. Su gestión se caracterizó por la estabilización económica, la firma del Acuerdo de Ilo ('Boliviamar') con Perú para facilitar una salida al mar, y la promulgación de leyes importantes como la Ley SAFCO y la Ley del Medio Ambiente.",
+      "Como Anakin, su ascenso fue meteórico: vicepresidente (1982-1984), luego presidente (1989-1993) mediante el 'Acuerdo Patriótico' — una alianza que muchos consideraron su caída al lado oscuro. Estabilizó la economía, firmó el Acuerdo de Ilo ('Boliviamar') con Perú, y promulgó leyes históricas. Pero las sombras del poder lo consumieron.",
     lore: [
-      "Fundador del MIR — Creó su propio Imperio desde las sombras",
-      "Sobrevivió al exilio — Forjado en la oscuridad, emergió más poderoso",
-      "Presidente 1989-1993 — Gobernó la galaxia boliviana con mano firme",
-      "El Acuerdo Patriótico — Una alianza oscura que le dio el trono imperial",
-      "Sobrino de Víctor Paz Estenssoro — El lado oscuro de la Fuerza corre por sus venas, herencia de una dinastía de poder",
+      "Joven idealista → Señor Oscuro — Como Anakin, empezó luchando por la justicia y terminó abrazando el poder",
+      "Fundador del MIR — Su Orden Jedi personal, creada para derrocar a los Sith... antes de convertirse en uno",
+      "Sobrevivió al exilio — Forjado en el sufrimiento, como Anakin en Mustafar",
+      "El Acuerdo Patriótico — Su momento de caída: la alianza oscura que le dio el trono imperial",
+      "Sobrino de Víctor Paz Estenssoro — La Fuerza corre por sus venas, una dinastía de poder absoluto",
     ],
     quote:
-      "\"Gobernar con ternura y respeto hacia la población\" — Incluso Vader tiene momentos de redención",
+      "\"Gobernar con ternura y respeto\" — Las últimas palabras de redención de Vader a su hijo Luke",
   },
   {
     id: "rodrigo",
     name: "RODRIGO PAZ PEREIRA",
-    alias: "Anakin Skywalker",
-    title: "El Elegido",
+    alias: "Luke Skywalker",
+    title: "La Nueva Esperanza",
     side: "light",
     saberColor: "#00BFFF",
     glowColor: "rgba(0, 191, 255, 0.3)",
-    bio: "Nacido en Santiago de Compostela, España, en 1967, durante el exilio de sus padres. Hijo de Jaime Paz Zamora y Carmen Pereira Carballo. Desde joven forjó su camino en la política tarijeña, ascendiendo metódicamente hasta alcanzar el cargo más alto de la nación.",
+    bio: "Nacido en Santiago de Compostela, España, en 1967, durante el exilio de sus padres — como Luke, creció lejos de su padre, en un mundo distante. Hijo de Jaime Paz Zamora, cargó toda su vida con el peso del apellido y el legado de una dinastía.",
     realHistory:
-      "Su carrera política abarcó dos décadas: diputado (2002-2010), presidente del Concejo Municipal de Tarija (2010-2015), alcalde de Tarija (2015-2020) y senador (2020-2025). En 2025, fue electo presidente de Bolivia tras ganar la segunda vuelta electoral contra Jorge 'Tuto' Quiroga, asumiendo el cargo el 8 de noviembre de 2025.",
+      "Como Luke, forjó su propio camino: diputado (2002-2010), presidente del Concejo Municipal de Tarija (2010-2015), alcalde de Tarija (2015-2020) y senador (2020-2025). En 2025, fue electo presidente de Bolivia, completando la profecía — el hijo que supera al padre y trae un nuevo amanecer a la galaxia.",
     lore: [
-      "Nacido en el exilio — Como Anakin, su origen está envuelto en misterio y esperanza",
-      "Heredero de la dinastía — Llamado a traer equilibrio a la Fuerza boliviana",
-      "Alcalde de Tarija — Entrenó en su propio sistema estelar antes de la gran batalla",
-      "Presidente 2025 — El elegido que debe decidir el destino de la galaxia",
-      "El dilema del hijo — ¿Seguir los pasos oscuros de su padre o restaurar la república galáctica?",
+      "Nacido en el exilio — Como Luke en Tatooine, creció lejos del centro del poder",
+      "Hijo de Vader — Cargó con el peso del legado oscuro de su padre",
+      "Entrenamiento en Tarija — Su Dagobah personal, donde se preparó para la batalla final",
+      "Presidente 2025 — La nueva esperanza que la galaxia boliviana necesitaba",
+      "\"Yo soy tu hijo\" — El momento en que confrontó el legado de su padre y decidió superarlo",
     ],
     quote:
-      "\"Capitalismo para todos\" — Su visión de un nuevo orden galáctico donde todos prosperen",
+      "\"Capitalismo para todos\" — La visión de Luke: un nuevo orden galáctico donde la Fuerza sea de todos",
   },
 ];
 
@@ -340,8 +340,8 @@ export default function CharacterLore() {
                 Padre e hijo. Dos épocas. Dos presidencias. La dinastía Paz
                 Zamora es la única en la historia de Bolivia donde padre e hijo
                 han llegado a la presidencia de la república. Como Anakin y
-                Vader, su historia es una de poder, legado y el eterno dilema
-                entre seguir el camino trazado o forjar uno propio.
+                Luke, su historia es una de poder, caída, redención y el eterno
+                dilema entre sucumbir a la oscuridad o traer una nueva esperanza.
               </p>
               <div className="flex items-center justify-center gap-6 mt-4">
                 <div className="flex items-center gap-2">
