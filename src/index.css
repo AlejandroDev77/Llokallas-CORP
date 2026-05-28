@@ -1,9 +1,314 @@
 @import "tailwindcss";
 
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+}
+
+/* Custom lightsaber cursor */
+*, *::before, *::after {
+  cursor: url('/cursor-saber.svg') 2 2, auto;
+}
+
+a, button, [role="button"], input[type="submit"], input[type="button"],
+select, label, summary, [onclick] {
+  cursor: url('/cursor-saber-hover.svg') 2 2, pointer !important;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Animaciones personalizadas */
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Perspectiva 3D para el logo */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Animación de parpadeo de estrellas */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Animación de estrella fugaz */
+@keyframes shootingStar {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-45deg);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(300px) translateY(300px) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* Animación de Light Speed */
+@keyframes lightSpeed {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    height: 2000px;
+    opacity: 0;
+  }
+}
+
+/* Animación de brillo en el botón */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* ═══════ HYPERSPACE ENTRY EFFECT ANIMATIONS ═══════ */
+
+/* Rayas de hiperespacio que crecen desde el centro */
+@keyframes hyperspaceStreak {
+  0% {
+    height: 0px;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.3;
+  }
+  15% {
+    height: 20px;
+    opacity: 0.6;
+  }
+  40% {
+    height: 200px;
+    opacity: 1;
+  }
+  70% {
+    height: 1200px;
+    opacity: 0.8;
+  }
+  100% {
+    height: 2500px;
+    opacity: 0;
+  }
+}
+
+/* Partículas de energía disparadas desde el centro */
+@keyframes energyParticle {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--angle, 0rad)) translateY(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+    transform: rotate(var(--angle, 0rad)) translateY(-200px);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--angle, 0rad)) translateY(-1500px);
+  }
+}
+
+/* Ondas expansivas circulares */
+@keyframes shockwave {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    width: 3000px;
+    height: 3000px;
+    opacity: 0;
+  }
+}
+
+/* Resplandor central creciente */
+@keyframes centralGlow {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(8);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(50);
+    opacity: 0.9;
+  }
+}
+
+/* Estrellas que se deforman al saltar al hiperespacio */
+@keyframes starWarp {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  30% {
+    transform: scale(1.5) translateZ(100px);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  60% {
+    transform: scale(2, 8);
+    opacity: 0.8;
+    filter: blur(2px);
+  }
+  100% {
+    transform: scale(0.5, 30) translateY(-200px);
+    opacity: 0;
+    filter: blur(4px);
+  }
+}
+
+/* Temblor de pantalla */
+@keyframes screenShake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, 2px); }
+  80% { transform: translate(1px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Nebulosa girando */
+@keyframes nebulaSwirl {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.3);
+  }
+  30% {
+    opacity: 0.6;
+    transform: rotate(60deg) scale(1);
+  }
+  60% {
+    opacity: 0.4;
+    transform: rotate(120deg) scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(180deg) scale(2.5);
+  }
+}
+
+/* Anillos de túnel */
+@keyframes tunnelRing {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  20% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3);
+  }
+}
+
+/* Fade in genérico */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Slide up para modales */
+@keyframes slideUp {
+  0% { transform: translateY(30px); }
+  100% { transform: translateY(0); }
+}
+
+/* Estilos personalizados para el slider de volumen */
+input[type="range"].slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 9999px;
+  outline: none;
+}
+
+input[type="range"].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffd700;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+input[type="range"].slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+input[type="range"].slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffd700;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+input[type="range"].slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
 }
